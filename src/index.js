@@ -3,14 +3,14 @@ const app = express();
 const connection = require('../src/dbconfig/dbconfig');
 
 const ModelMovies = require('../src/models/Movies/ModelMovies');
-const ModelSpactators = require('../src/models/Spectors/ModelSpactators')
+const ModelSpactators = require('./models/Spectors/ModelSpectators')
 
 
-const spactators = require('../src/models/Spectors/SpactatorsController');
+const spectators = require('./models/Spectors/SpectatorsController');
 const Movies = require('../src/models/Movies/MoviesControllers');
 
 
-app.use(express.static('public'));
+//app.use(express.static('public'));
 
 app.use(express.urlencoded({extended:true}));
 app.use(express.json());
@@ -26,11 +26,11 @@ connection
 
 
 
-app.use("/", spactators);
+app.use("/", spectators);
+app.use("/", Movies);
+
           
-app.use("/", (req, res) =>{
-        res.send("Hello my friends...");
-});
+
 
 
 

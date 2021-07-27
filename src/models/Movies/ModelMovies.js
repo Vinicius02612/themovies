@@ -12,7 +12,7 @@ const Movies = connection.define('Movies', {
         allowNull:false
     },
     yaer_manufacture:{
-        type:Sequelize.DATE,
+        type:Sequelize.CHAR,
         allowNull:false
     }
     

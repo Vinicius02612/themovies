@@ -6,7 +6,7 @@ const MoldeMovies = require('../Movies/ModelMovies');
 
 
 //crinado tabela de Espectadores..
-const Spectators = connection.define('Spactators', {
+const Spectators = connection.define('Spectators', {
     name:{
         type:Sequelize.STRING,
         allowNull:false
