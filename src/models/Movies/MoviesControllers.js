@@ -1,5 +1,5 @@
 const express = require('express');
-const { route } = require('../Spectors/SpectatorsController');
+ 
 const router = express.Router();
 
 const Movies = require('./ModelMovies');
@@ -14,18 +14,27 @@ router.get("/movies" , (req, res) =>{
 
 //cadastrando filmes...
 router.post("/movies/save", (req, res) =>{
+    var id = req.body.id
     var title = req.body.title;
     var description = req.body.description;
-    var yaer_manufacture = req.body.yaer_manufacture;
+    var year_manufacture = req.body.year_manufacture;
+    var status = req.body.status
 
-    Movies.create({
-        title:title,
-        description:description,
-        yaer_manufacture:yaer_manufacture
-    }).then(()=>{
-        res.redirect("/movies")
-    })
-})
+    if(id != undefined){
+        Movies.create({  
+            title:title,
+            description:description,
+            year_manufacture:year_manufacture,
+            status:status
+        }).then(()=>{
+            res.redirect("/movies")
+        })
+    }else{
+        console.log("filme ja cadastrado!")
+    }
+
+   
+});
 
 
 module.exports = router;

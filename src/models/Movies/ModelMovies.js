@@ -11,14 +11,18 @@ const Movies = connection.define('Movies', {
         type:Sequelize.TEXT,
         allowNull:false
     },
-    yaer_manufacture:{
+    year_manufacture:{
         type:Sequelize.CHAR,
+        allowNull:false
+    },
+    status:{
+        type:Sequelize.BOOLEAN,
         allowNull:false
     }
     
 });
 
-//Movies.sync();
+Movies.sync(); 
 //criando table de Movies se ela ainda não existir no banco
 
 module.exports = Movies;

@@ -2,7 +2,7 @@ const Sequelize = require('sequelize');
 const connection = require('../../dbconfig/dbconfig');
 
 //importando tabela de filmes para realizar o relacionamento entre as tabelas
-const MoldeMovies = require('../Movies/ModelMovies');
+const ModelMovies = require('../Movies/ModelMovies');
 
 
 //crinado tabela de Espectadores..
@@ -17,9 +17,9 @@ const Spectators = connection.define('Spectators', {
     }
 });
 
-MoldeMovies.hasMany(Spectators);// relacionamento de 1 espectador para varios Filmes
-Spectators.belongsTo(MoldeMovies);// relacionamento entre as tabelas
+ModelMovies.hasMany(Spectators);// relacionamento de 1 espectador para varios Filmes
+Spectators.belongsTo(ModelMovies);// relacionamento entre as tabelas
 
-//Spectators.sync({force: true});
+Spectators.sync({force: true}); 
 
 module.exports =Spectators;
